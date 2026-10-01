@@ -1,0 +1,10 @@
+---
+layout: base.njk
+pagination:
+  data: site.tags
+  size: 1
+  alias: tagPage
+permalink: "{{ tagPage.url }}"
+eleventyComputed:
+  title: "{{ tagPage.label }}"
+---

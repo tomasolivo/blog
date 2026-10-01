@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }} · {{ site.title }}</title>
   <link rel="stylesheet" href="/assets/css/style.css">
+  <style>{% getBundle "css" %}</style>
   <script>
     try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
@@ -23,7 +24,7 @@
   <div class="stage">
     <div class="backdrop" aria-hidden="true">
       {%- for layer in backdrop %}
-      <div class="backdrop__layer{% if layer.fade %} backdrop__layer--fade{% endif %}" data-depth="{{ layer.depth }}"
+      <div class="backdrop__layer{% if layer.fade %} backdrop__layer--fade{% endif %}{% if layer.class %} {{ layer.class }}{% endif %}" data-depth="{{ layer.depth }}"
            style="--bleed: {{ layer.bleed or 0 }}px; --fit: {{ layer.fit or 'cover' }}; --pos: {{ layer.position or 'center' }};{% if layer.opacity %} opacity: {{ layer.opacity }};{% endif %}{% if layer.blend %} mix-blend-mode: {{ layer.blend }};{% endif %}">
         <img src="{{ layer.src }}" alt="" decoding="async">
       </div>
@@ -35,7 +36,7 @@
         <path d="M352 22 C320 140 200 205 -40 232"/>
       </svg>
       {%- for tag in site.tags %}
-      <a class="tag" href="{{ tag.url }}" style="left: {{ tag.x }}px; top: {{ tag.y }}px">{{ tag.label }} ({{ tag.count }})</a>
+      <a class="tag" href="{{ tag.url }}" style="left: {{ tag.x }}px; top: {{ tag.y }}px">{{ tag.label }} ({{ (collections[tag.label] or []) | length }})</a>
       {%- endfor %}
     </nav>
 
@@ -51,9 +52,11 @@
         {%- endfor %}
       </ul>
 
-      <section class="panel__body">
+      <section class="panel__body{% if panelScroll %} panel__body--scroll{% endif %}">
         <h1>{{ title }}</h1>
-        {%- for group in entries %}
+        {%- set groups = entries %}
+        {%- if tagPage %}{% set groups = collections[tagPage.label] | byMonth %}{% endif %}
+        {%- for group in groups %}
         <div class="group">
           <p class="group__date">:: {{ group.date }}</p>
           <ul>
@@ -69,5 +72,6 @@
   </div>
 
   <script src="/assets/js/parallax.js" defer></script>
+  <script type="module">{% getBundle "js" %}</script>
 </body>
 </html>

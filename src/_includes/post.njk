@@ -1,0 +1,10 @@
+---
+layout: base.njk
+---
+<p class="group__date">:: {{ page.date | ym }}</p>
+<article class="post">
+  {{ content | safe }}
+  <p class="post__tags">
+    {%- for t in tags %}{% if t != "posts" %}<a href="/tags/{{ t }}/">#{{ t }}</a> {% endif %}{% endfor -%}
+  </p>
+</article>

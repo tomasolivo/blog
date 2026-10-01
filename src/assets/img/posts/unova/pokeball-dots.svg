@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="660" viewBox="0 0 900 660">
+  <defs>
+    <pattern id="p" width="56" height="56" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#fff" stroke-opacity=".32" stroke-width="1.2">
+        <circle cx="28" cy="28" r="7"/>
+        <path d="M21 28h4.6M30.4 28H35"/>
+        <circle cx="28" cy="28" r="2.4"/>
+      </g>
+    </pattern>
+    <linearGradient id="fr" x1="0" x2="1"><stop offset=".8" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="fb" x1="0" x2="0" y1="0" y2="1"><stop offset=".6" stop-color="#fff"/><stop offset=".9" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <mask id="mr"><rect width="900" height="660" fill="url(#fr)"/></mask>
+    <mask id="mb"><rect width="900" height="660" fill="url(#fb)"/></mask>
+  </defs>
+  <g mask="url(#mr)"><g mask="url(#mb)"><rect width="900" height="660" fill="url(#p)"/></g></g>
+</svg>
