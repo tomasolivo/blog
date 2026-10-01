@@ -3,3 +3,4 @@ _site/
 *.mp4
 *.png
 .DS_Store
+.claude/

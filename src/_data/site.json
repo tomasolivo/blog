@@ -1,0 +1,18 @@
+{
+  "title": "blog",
+  "nav": [
+    { "label": "Home", "url": "/" },
+    { "label": "Blog", "url": "/blog/" },
+    { "label": "Photography", "url": "/photography/" },
+    { "label": "Vignettes", "url": "/vignettes/" },
+    { "label": "Music", "url": "/music/" }
+  ],
+  "tags": [
+    { "label": "programming", "count": 9, "url": "/tags/programming/", "x": 348, "y": 50 },
+    { "label": "tools", "count": 9, "url": "/tags/tools/", "x": 336, "y": 100 },
+    { "label": "llms", "count": 7, "url": "/tags/llms/", "x": 288, "y": 145 },
+    { "label": "projects", "count": 6, "url": "/tags/projects/", "x": 212, "y": 183 },
+    { "label": "git", "count": 2, "url": "/tags/git/", "x": 152, "y": 212 },
+    { "label": "skills", "count": 2, "url": "/tags/skills/", "x": 61, "y": 228 }
+  ]
+}
