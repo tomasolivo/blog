@@ -1,0 +1,5 @@
+node_modules/
+_site/
+*.mp4
+*.png
+.DS_Store
